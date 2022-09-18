@@ -1,3 +1,8 @@
 html {
   background: #685f7f;
+  font-family: "EB Garamond", "Hoefler Text", Georgia, "Times New Roman", Times, Roman, serif;
+}
+
+h1 {
+  text-align: center;
 }
