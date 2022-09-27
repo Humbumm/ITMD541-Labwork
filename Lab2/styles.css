@@ -5,6 +5,7 @@
 	justify-content: space-evenly;
 	list-style-type: none;
 	padding: 0;
+	margin: 0;
 }
 
 /* end Flexbox Part 1 */
@@ -13,23 +14,26 @@
 /* Flexbox Part 2 */
 
 #flex-section2 ul {
-
+	display: flex;
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
 }
 
 #flex-section2 li {
-
+	flex-basis: 100%;
 }
 
 #flex-section2 .item1 {
-
+	order: 1;
 }
 
 #flex-section2 .item2 {
-
+	order: 2;
 }
 
 #flex-section2 .item3 {
-
+	order: 3;
 }
 
 /* end Flexbox Part 2 */
