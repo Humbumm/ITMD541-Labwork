@@ -74,11 +74,18 @@
 /* Grid Part 2 */
 
 #grid-section2 .gridboxblue {
-
+	display: grid;
+	grid-row: 1/6;
+	grid-column: 2/6;
+	z-index: 1;
 }
 
 #grid-section2 .gridboxred {
-
+	display: grid;
+	grid-row-start: 2;
+	grid-row-end: 3;
+	grid-column-start: 1;
+	grid-column-end: 3;
 }
 
 /* end Grid Part 2 */
