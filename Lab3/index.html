@@ -13,23 +13,23 @@
       <form>
         <div class="calc-content">
           <label for="Bill Cost">Bill Total: </label>
-          <input type="number" name="cost">
+          <input type="text" name="cost" id ="cost" inputmode="decimal">
         </div>
         <div class="calc-content">
           <label for="Tip Percent">Tip percentage: </label>
-          <input type="range" name="tip" min="1" max="100" value="0">
+          <input type="range" name="tip" id="tip "min="1" max="100" value="0">
         </div>
         <div class="calc-content">
           <label for="Tip">Tip percent: </label>
-          <input type="number" name="tipPercent" id="tipPercent" value="0" disabled>
+          <input type="text" name="tipPercent" id="tipPercent" value="0" inputmode="decimal" disabled>
         </div>
         <div class="calc-content">
           <label for="Dollar Amount">Tip percent ($): </label>
-          <input type="number" name="tipDollar" id ="tipDollar" disabled>
+          <input type="text" name="tipDollar" id ="tipDollar" inputmode="decimal" disabled>
         </div>
         <div class="calc-content">
           <label for="Total After">Total Bill + Tip: </label>
-          <input type="number" name="totalTip" id="totalTip" disabled>
+          <input type="text" name="totalTip" id="totalTip" inputmode="decimal" disabled>
         </div>
       </form>
     </div>
