@@ -1,0 +1,22 @@
+*{
+  font-family: "Maven Pro", sans-serif;
+}
+
+
+.calc-frame{
+  font-size: 32px;
+  text-align: center;
+  padding: 5px;
+}
+
+form{
+  background-color: #58D5D4;
+  padding: 30px;
+  width: 500px;
+  margin-left: 650px;
+}
+
+input[name=tipPercent],input[name="tipDollar"],input[name="totalTip"]
+  {
+    background-color: lightgray;
+  }
