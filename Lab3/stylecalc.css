@@ -15,8 +15,7 @@ form{
   margin-left: 650px;
 }
 
-input[name=tipPercent],input[name="tipDollar"],input[name="totalTip"]
-  {
+input[name=tipPercent],input[name="tipDollar"],input[name="totalTip"]{
     background-color: lightgray;
   }
 

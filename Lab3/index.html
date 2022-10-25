@@ -10,14 +10,14 @@
   <body>
     <div class="calc-frame">
       <h1>Tip Calculator</h1>
-      <form>
+      <form name="calculator">
         <div class="calc-content">
           <label for="Bill Cost">Bill Total: </label>
-          <input type="text" name="cost" id ="cost" inputmode="decimal">
+          <input type="text" name="cost" id ="cost" inputmode="decimal" onchange="calcu()">
         </div>
         <div class="calc-content">
           <label for="Tip Percent">Tip percentage: </label>
-          <input type="range" name="tip" id="tip "min="1" max="100" value="0">
+          <input type="range" name="tip" id="tip" min="1" max="100" value="0" onchange="calcu()">
         </div>
         <div class="calc-content">
           <label for="Tip">Tip percent: </label>
@@ -36,6 +36,6 @@
     <footer id="footer">
       <p>Site © Ronan Valarese. All rights reserved.</p>
     </footer>
-    <script src="stylecalc"></script>
+    <script type = "text/javascript" src="scriptcalc.js"></script>
   </body>
 </html>
