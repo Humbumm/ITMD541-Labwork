@@ -10,7 +10,6 @@ billInput.addEventListener("change",calcu);
 function calcu() {
         let bill = document.forms["calculator"]["cost"].value;
 
-        console.log("my cock");
         let tipPerc = document.forms["calculator"]["tip"].value;
         document.getElementById("tipPercent").value = tipPerc;
         let tipAmount = (bill / 100) * tipPerc;
