@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styleweather.css">
+    <title></title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="current-info">
+
+          <div class="city-container">
+              <div class="city">
+                 <h3 id="city"> Chicago </h3>
+              </div>
+              <div class="temperature">
+                 <h3 id="temperature"> 32°F</h3>
+              </div>
+              <div class="search">
+                  <input type="text" class="search_bar" placeholder="Search">
+                  <button type="submit" id="searchButton">Search</button>
+              </div>
+          </div>
+
+          <div class="current" id="current-weather">
+            <div class="dayhour" id="dayh">Day Hour :</div>
+            <div class="humidity" id="hum">Humidity : </div>
+            <div class="precipitation" id="preci">Precipitation : </div>
+            <img src "" alt="" id="icon"/>
+            <div class="description" id="des">Cloudy</div>
+            <div class="wind" id="windy">Wind: m/hr</div>
+          </div>
+
+      </div>
+
+      <div class="forecast">
+        <div class="forecast-info">
+          <div class="iconie"> <img src "" alt="" id="icon1"/></div>
+          <div class="day" id="days">DAY</div>
+          <div id="des1" > Cloudy</div>
+          <div class="temp" id="max1">Hgih : </div>
+          <div class="temp" id="min1">Low : </div>
+        </div>
+      </div>
+
+    </div>
+    <script src="scriptweather.js"></script>
+  </body>
+</html>
