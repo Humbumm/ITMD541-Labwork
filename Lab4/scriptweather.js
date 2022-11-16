@@ -1,9 +1,20 @@
-let myRequest = new XMLHttpRequest();
+document.getElementById("searchButton").addEventListener("click", function () {
 
-myRequest.onload = function request(updatedLink) {
-  let data = JSON.parse(myRequest.responseText);
-  currentWeather(data);
-}
+  let locSearch = (document.getElementById('searchBar').value);
+  let apiLoc = "https://weatherdbi.herokuapp.com/data/weather/"+locSearch+"";
+  let myRequest = new XMLHttpRequest();
+
+  myRequest.addEventListener('load', function(x){
+    console.log(x);
+    let data = JSON.parse(myRequest.responseText);
+
+    futureForecast(data);
+    currentWeather(data);
+  });
+  myRequest.open('GET', apiLoc);
+
+  myRequest.send();
+}, false);
 
 function currentWeather(data) {
   document.getElementById("city").innerHTML= "Weather in "+data.region;
@@ -16,24 +27,36 @@ function currentWeather(data) {
   document.getElementById("dayh").textContent= "Day Hour : "+data.currentConditions.dayhour;
 }
 
-/* document.getElementById('searchButton').addEventListener('click', function(){
-  let locSearch = (document.getElementById('searchButton').value)
-  console.log(locSearch);
-  let updatedLink = "https://weatherdbi.herokuapp.com/data/weather/"+locSearch+"";
-  request(updatedLink);
-}); */
+function futureForecast(data) {
+  forecastData = data.next_days;
 
-function search() {
-    let location=(document.getElementById("searchButton").value);
-    let apiLoc = " https://weatherdbi.herokuapp.com/data/weather/"+location+"";
+  forecastData.forEach((forecast) => {
+    let fcDay = forecastData[0].day;
+    let fcComment = forecastData[0].comment;
+    let fcMaxTemp = forecastData[0].max_temp.f;
+    let fcMinTemp = forecastData[0].min_temp.f;
+    let fcIcon = forecastData[0].iconURL;
 
-    fetchSearch(apiLoc);
-  };
-document.getElementById("searchButton").addEventListener("click", function () {
-   search();
-});
+    forecastDay = document.createElement('p');
+    forecastDay.textContent = `${fcDay}`;
+    forecastDay.className = ('dayClass');
+    forecastComment = document.createElement('p');
+    forecastComment.textContent = `${fcComment}`;
+    forecastComment.className = ('commentClass');
+    forecastMaxTemp = document.createElement('p');
+    forecastMaxTemp.textContent = `${fcMaxTemp}`;
+    forecastMaxTemp.className = ('maxtempClass');
+    forecastMinTemp = document.createElement('p');
+    forecastMinTemp.textContent = `${fcMinTemp}`;
+    forecastMinTemp.className = ('mintempClass');
+    forecastIcon = document.createElement('img');
+    forecastIcon.textContent = `${fcIcon}`;
+    forecastIcon.className = ('iconClass');
 
-
-myRequest.open('GET', "https://weatherdbi.herokuapp.com/data/weather/Chicago");
-
-myRequest.send();
+    let parentForecast = document.getElementById("forecast-parent");
+    let singleForecast = document.createElement("div");
+    singleForecast.className = ("forecastPapi");
+    singleForecast.append(forecastDay, forecastComment, forecastMaxTemp, forecastMinTemp, forecastIcon);
+    parentForecast.append(singleForecast);
+  });
+};
