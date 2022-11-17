@@ -5,7 +5,7 @@ document.getElementById("searchButton").addEventListener("click", function () {
   let myRequest = new XMLHttpRequest();
 
   myRequest.addEventListener('load', function(x){
-    console.log(x);
+
     let data = JSON.parse(myRequest.responseText);
 
     futureForecast(data);
@@ -14,7 +14,7 @@ document.getElementById("searchButton").addEventListener("click", function () {
   myRequest.open('GET', apiLoc);
 
   myRequest.send();
-}, false);
+});
 
 function currentWeather(data) {
   document.getElementById("city").innerHTML= "Weather in "+data.region;
@@ -28,30 +28,32 @@ function currentWeather(data) {
 }
 
 function futureForecast(data) {
-  forecastData = data.next_days;
+  forecastData = data.next_days
 
   forecastData.forEach((forecast) => {
-    let fcDay = forecastData[0].day;
-    let fcComment = forecastData[0].comment;
-    let fcMaxTemp = forecastData[0].max_temp.f;
-    let fcMinTemp = forecastData[0].min_temp.f;
-    let fcIcon = forecastData[0].iconURL;
+    let fcDay = forecast.day;
+    let fcComment = forecast.comment;
+    let fcMaxTemp = forecast.max_temp.f;
+    let fcMinTemp = forecast.min_temp.f;
+    let fcIcon = forecast.iconURL;
 
-    forecastDay = document.createElement('p');
+    let forecastDay = document.createElement('p');
     forecastDay.textContent = `${fcDay}`;
     forecastDay.className = ('dayClass');
-    forecastComment = document.createElement('p');
+    let forecastComment = document.createElement('p');
     forecastComment.textContent = `${fcComment}`;
     forecastComment.className = ('commentClass');
-    forecastMaxTemp = document.createElement('p');
+    let forecastMaxTemp = document.createElement('p');
     forecastMaxTemp.textContent = `${fcMaxTemp}`;
     forecastMaxTemp.className = ('maxtempClass');
-    forecastMinTemp = document.createElement('p');
+    let forecastMinTemp = document.createElement('p');
     forecastMinTemp.textContent = `${fcMinTemp}`;
     forecastMinTemp.className = ('mintempClass');
-    forecastIcon = document.createElement('img');
-    forecastIcon.textContent = `${fcIcon}`;
+    let forecastIcon = document.createElement('img');
+    forecastIcon.src = fcIcon;
     forecastIcon.className = ('iconClass');
+
+    console.log(fcIcon);
 
     let parentForecast = document.getElementById("forecast-parent");
     let singleForecast = document.createElement("div");
@@ -60,3 +62,34 @@ function futureForecast(data) {
     parentForecast.append(singleForecast);
   });
 };
+
+let lat = 0;
+let long = 0;
+function success(l){
+
+    let lat = l.coords.latitude;
+    let long = l.coords.longitude;
+
+    let geoURL ="https://weatherdbi.herokuapp.com/data/weather/"+ lat +"," + long +"";
+    let myRequest = new XMLHttpRequest();
+
+    myRequest.addEventListener('load', function(y){
+
+      let data = JSON.parse(myRequest.responseText);
+
+      futureForecast(data);
+      currentWeather(data);
+    });
+    myRequest.open('GET', geoURL);
+
+    myRequest.send();
+}
+
+function error(e){
+    console.log(e);
+    alert('Error: ' + e.message);
+}
+
+document.getElementById("geoButton").addEventListener("click", function () {
+  navigator.geolocation.getCurrentPosition(success, error);
+});
