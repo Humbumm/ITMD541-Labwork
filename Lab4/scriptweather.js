@@ -29,7 +29,7 @@ function currentWeather(data) {
 
 function futureForecast(data) {
   forecastData = data.next_days
-  
+
   removeWeather('#forecast-parent');
 
   forecastData.forEach((forecast) => {
@@ -99,5 +99,6 @@ function removeWeather(x) {
 };
 
 document.getElementById("geoButton").addEventListener("click", function () {
+  removeWeather('#forecast-parent');
   navigator.geolocation.getCurrentPosition(success, error);
 });
