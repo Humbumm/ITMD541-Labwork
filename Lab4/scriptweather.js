@@ -29,6 +29,8 @@ function currentWeather(data) {
 
 function futureForecast(data) {
   forecastData = data.next_days
+  
+  removeWeather('#forecast-parent');
 
   forecastData.forEach((forecast) => {
     let fcDay = forecast.day;
@@ -53,7 +55,6 @@ function futureForecast(data) {
     forecastIcon.src = fcIcon;
     forecastIcon.className = ('iconClass');
 
-    console.log(fcIcon);
 
     let parentForecast = document.getElementById("forecast-parent");
     let singleForecast = document.createElement("div");
@@ -89,6 +90,13 @@ function error(e){
     console.log(e);
     alert('Error: ' + e.message);
 }
+
+function removeWeather(x) {
+  let removeDiv = document.querySelector(`${x}`);
+  while (removeDiv.lastChild) {
+    removeDiv.removeChild(removeDiv.lastChild)
+  };
+};
 
 document.getElementById("geoButton").addEventListener("click", function () {
   navigator.geolocation.getCurrentPosition(success, error);
