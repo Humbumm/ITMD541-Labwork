@@ -1,6 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;500&display=swap');
+
+
 body {
     background:url('https://images.unsplash.com/photo-1422493757035-1e5e03968f95?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1708&q=80');
     background-size: cover;
+    font-family: 'Oswald', sans-serif;
 }
 .parent-current {
   display: flex;
@@ -10,17 +14,31 @@ body {
   display: flex;
   align-items: center;
   flex-direction: column;
-  width: 450px;
+  width: auto;
   padding-top: 100px;
-  background: rgba(134, 141, 145, .4);
+  background: rgba(134, 141, 145, .5);
   border-radius: 25px;
 }
 .city-container {
   padding-bottom: 50px;
 }
-.search_bar {
-  
+.city-temp {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
 }
+.search {
+  display: flex;
+  gap: 10px;
+}
+input.search_bar {
+  border: none;
+  background: rgba(134, 141, 145, .5);
+}
+
+.current {
+}
+
 .forecast-parent {
   display: flex;
   justify-content: space-around;
