@@ -59,7 +59,7 @@ function futureForecast(data) {
     let parentForecast = document.getElementById("forecast-parent");
     let singleForecast = document.createElement("div");
     singleForecast.className = ("forecastPapi");
-    singleForecast.append(forecastDay, forecastComment, forecastMaxTemp, forecastMinTemp, forecastIcon);
+    singleForecast.append(forecastDay, forecastIcon, forecastComment, forecastMaxTemp, forecastMinTemp);
     parentForecast.append(singleForecast);
   });
 };
@@ -96,6 +96,12 @@ function removeWeather(x) {
   while (removeDiv.lastChild) {
     removeDiv.removeChild(removeDiv.lastChild)
   };
+};
+
+window.onload = function(){
+  setTimeout(function(){
+    document.getElementById("fadein").remove();
+  },1000);
 };
 
 document.getElementById("geoButton").addEventListener("click", function () {
