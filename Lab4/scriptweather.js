@@ -7,9 +7,8 @@ document.getElementById("searchButton").addEventListener("click", function () {
   myRequest.addEventListener('load', function(x){
 
     let data = JSON.parse(myRequest.responseText);
-
-    futureForecast(data);
-    currentWeather(data);
+    console.log(data['status']);
+    data['status'] === 'fail' ? alert('You did not enter a real location, enter a real loction') : (futureForecast(data), currentWeather(data));
   });
   myRequest.open('GET', apiLoc);
 
